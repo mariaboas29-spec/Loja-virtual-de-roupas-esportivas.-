@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportFit - Roupas Esportivas</title>
+
+    <style>
+    <style>
+    <style>
+    <style>
+    <style>
+    <style>
+        :root {
+            --verde: #1ecb7c;
+            --verde-escuro: #0e8b5d;
+            --preto: #121212;
+            --cinza: #f4f6f4;
+            --cinza-escuro: #4d4d4d;
+            --branco: #ffffff;
+            --sombra: 0 12px 30px rgba(18, 18, 18, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--cinza);
+            color: var(--preto);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            background: rgba(18, 18, 18, 0.95);
+            color: var(--branco);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(12px);
+        }
+
+        header h1 {
+            color: var(--verde);
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 26px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--branco);
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--verde);
+        }
+
+        .banner {
+            background: linear-gradient(rgba(18,18,18,0.45), rgba(14, 139, 93, 0.65)),
+                        url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: var(--branco);
+            padding: 110px 20px 80px;
+            text-align: center;
+        }
+
+        .banner-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(30, 203, 124, 0.2);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #d7ffe9;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .banner h2 {
+            font-size: clamp(2.4rem, 6vw, 4.4rem);
+            margin-bottom: 14px;
+        }
+
+        .banner p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 26px;
+            line-height: 1.6;
+        }
+
+        .botoes {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .botao {
+            display: inline-block;
+            background: var(--verde);
+            color: var(--preto);
+            padding: 15px 28px;
+            border-radius: 999px;
+            font-weight: bold;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .botao:hover {
+            background: #49d996;
+            transform: translateY(-2px);
+        }
+
+        .botao-secundario {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.7);
+            color: var(--branco);
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+        }
+
+        .colecoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin-top: 25px;
+        }
+
+        .colecao {
+            position: relative;
+            min-height: 260px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+        }
+
+        .colecao img {
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .colecao .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(18,18,18,0.12), rgba(18,18,18,0.8));
+            display: flex;
+            align-items: end;
+            padding: 24px;
+            color: var(--branco);
+        }
+
+        .colecao h3 {
+            font-size: 1.5rem;
+        }
+
+        .produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .produto {
+            background: var(--branco);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--sombra);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .produto:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 32px rgba(18,18,18,0.18);
+        }
+
+        .produto img {
+            height: 260px;
+            object-fit: cover;
+            filter: saturate(1.12) contrast(1.04);
+        }
+
+        .produto-info {
+            padding: 20px;
+        }
+
+        .categoria {
+            display: inline-block;
+            font-size: 0.74rem;
+            color: var(--verde-escuro);
+            background: rgba(30, 203, 124, 0.1);
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .produto h3 {
+            margin-bottom: 8px;
+            font-size: 1.35rem;
+        }
+
+        .produto p {
+            color: var(--cinza-escuro);
+            min-height: 48px;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .produto-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .preco {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--verde-escuro);
+        }
+
+        .qualidade {
+            background: linear-gradient(135deg, #0c0c0c, #1f3a34);
+            color: var(--branco);
+            text-align: center;
+        }
+
+        .qualidade p {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.08rem;
+            line-height: 1.8;
+        }
+
+        .beneficios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .beneficio {
+            background: var(--branco);
+            padding: 26px 22px;
+            border-radius: 16px;
+            box-shadow: var(--sombra);
+            text-align: center;
+        }
+
+        .beneficio .icone {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: rgba(30, 203, 124, 0.1);
+            display: grid;
+            place-items: center;
+            font-size: 2rem;
+        }
+
+        .beneficio h3 {
+            color: var(--verde-escuro);
+            margin-bottom: 10px;
+        }
+
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .galeria img {
+            height: 280px;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: var(--sombra);
+            filter: saturate(1.15) contrast(1.05);
+        }
+
+        .newsletter {
+            background: #eafaf3;
+            border-radius: 22px;
+            padding: 35px 24px;
+            text-align: center;
+            box-shadow: var(--sombra);
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            color: var(--cinza-escuro);
+            margin-bottom: 22px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-form input {
+            width: min(420px, 100%);
+            padding: 16px 18px;
+            border: 1px solid #d5e4dc;
+            border-radius: 999px;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: var(--preto);
+            color: var(--branco);
+            text-align: center;
+            padding: 28px 20px;
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+            color: var(--verde);
+        }
+
+        footer p {
+            margin-bottom: 8px;
+            color: #d7d7d7;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input,
+            .newsletter-form .botao {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>SportFit</h1>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#colecoes">Coleções</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#qualidade">Qualidade</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section class="banner" id="inicio">
+        <div class="banner-content">
+            <div class="tag">Performance & estilo</div>
+            <h2>Vista seu melhor desempenho</h2>
+            <p>Roupas esportivas premium para academia, corrida, treino funcional e vida ativa.</p>
+            <div class="botoes">
+                <a href="#produtos" class="botao">Ver coleção</a>
+                <a href="#colecoes" class="botao botao-secundario">Explorar estilos</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="colecoes">
+        <h2 class="titulo">Escolha sua vibe</h2>
+
+        <div class="colecoes">
+            <div class="colecao">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80" alt="Moda masculina esportiva">
+                <div class="overlay">
+                    <h3>Masculino</h3>
+                </div>
+            </div>
+
+            <div class="colecao">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80" alt="Moda feminina esportiva">
+                <div class="overlay">
+                    <h3>Feminino</h3>
+                </div>
+            </div>
+
+            <div class="colecao">
+                <img src="https://images.unsplash.com/photo-1556817411-31ae72fa3ea0?auto=format&fit=crop&w=900&q=80" alt="Coleção corrida">
+                <div class="overlay">
+                    <h3>Corrida</h3>
+                </div>
+            </div>
+
+            <div class="colecao">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80" alt="Coleção academia">
+                <div class="overlay">
+                    <h3>Academia</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="produtos">
+        <h2 class="titulo">Nossos destaques</h2>
+
+        <div class="produtos">
+            <article class="produto">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80&sat=-12" alt="Camiseta Dry Fit">
+                <div class="produto-info">
+                    <span class="categoria">Treino</span>
+                    <h3>Camiseta Dry Fit</h3>
+                    <p>Leve, respirável e ideal para treinos intensos e dias quentes.</p>
+                    <div class="produto-footer">
+                        <span class="preco">R$ 79,90</span>
+                        <a href="#" class="botao">Comprar</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80&sat=-10" alt="Shorts esportivo">
+                <div class="produto-info">
+                    <span class="categoria">Mobilidade</span>
+                    <h3>Shorts Esportivo</h3>
+                    <p>Design leve com tecido macio e liberdade total de movimento.</p>
+                    <div class="produto-footer">
+                        <span class="preco">R$ 69,90</span>
+                        <a href="#" class="botao">Comprar</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80&sat=-8" alt="Legging fitness feminino">
+                <div class="produto-info">
+                    <span class="categoria">Conforto</span>
+                    <h3>Legging Fitness</h3>
+                    <p>Alta elasticidade, secagem rápida e ajuste perfeito para treinos.</p>
+                    <div class="produto-footer">
+                        <span class="preco">R$ 99,90</span>
+                        <a href="#" class="botao">Comprar</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80&sat=-12" alt="Jaqueta esportiva">
+                <div class="produto-info">
+                    <span class="categoria">Outdoor</span>
+                    <h3>Jaqueta Esportiva</h3>
+                    <p>Proteção, estilo e conforto para corridas e atividades ao ar livre.</p>
+                    <div class="produto-footer">
+                        <span class="preco">R$ 149,90</span>
+                        <a href="#" class="botao">Comprar</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80&sat=-10" alt="Top esportivo feminino">
+                <div class="produto-info">
+                    <span class="categoria">Feminino</span>
+                    <h3>Top Performance</h3>
+                    <p>Modelagem feminina com suporte e liberdade para cada movimento.</p>
+                    <div class="produto-footer">
+                        <span class="preco">R$ 89,90</span>
+                        <a href="#" class="botao">Comprar</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=80&sat=-8" alt="Calça de corrida">
+                <div class="produto-info">
+                    <span class="categoria">Corrida</span>
+                    <h3>Calça de Corrida</h3>
+                    <p>Composição leve com tecnologia que ajuda no conforto e na performance.</p>
+                    <div class="produto-footer">
+                        <span class="preco">R$ 119,90</span>
+                        <a href="#" class="botao">Comprar</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80&sat=-10" alt="Moletom esportivo">
+                <div class="produto-info">
+                    <span class="categoria">Casual</span>
+                    <h3>Moletom Sport</h3>
+                    <p>Ideal para aquecimento, treino leve e looks esportivos do dia a dia.</p>
+                    <div class="produto-footer">
+                        <span class="preco">R$ 129,90</span>
+                        <a href="#" class="botao">Comprar</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="produto">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80&sat=-8" alt="Tênis esportivo">
+                <div class="produto-info">
+                    <span class="categoria">Acessórios</span>
+                    <h3>Tênis Performance</h3>
+                    <p>Respingo de estilo e máximo amortecimento para cada passo.</p>
+                    <div class="produto-footer">
+                        <span class="preco">R$ 219,90</span>
+                        <a href="#" class="botao">Comprar</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="qualidade" id="qualidade">
+        <h2 class="titulo">Qualidade em cada detalhe</h2>
+
+        <p>
+            Na SportFit, cada peça é pensada para combinar tecnologia, conforto e estilo. Trabalhamos com tecidos de alto desempenho,
+            respirabilidade, elasticidade e acabamento premium para que você tenha máxima liberdade em cada treino, caminhada ou rotina ativa.
+        </p>
+    </section>
+
+    <section>
+        <h2 class="titulo">Por que escolher a SportFit?</h2>
+
+        <div class="beneficios">
+            <div class="beneficio">
+                <div class="icone">🏆</div>
+                <h3>Alta qualidade</h3>
+                <p>Materiais resistentes, duráveis e feitos para treinos intensos.</p>
+            </div>
+
+            <div class="beneficio">
+                <div class="icone">💸</div>
+                <h3>Preço justo</h3>
+                <p>Produtos premium com excelente custo-benefício para toda a família.</p>
+            </div>
+
+            <div class="beneficio">
+                <div class="icone">✨</div>
+                <h3>Conforto</h3>
+                <p>Modelos pensados para facilitar seus movimentos e oferecer leveza.</p>
+            </div>
+
+            <div class="beneficio">
+                <div class="icone">🔥</div>
+                <h3>Estilo</h3>
+                <p>Looks modernos que unem performance, personalidade e elegância.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="titulo">Veja o estilo em ação</h2>
+
+        <div class="galeria">
+            <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?auto=format&fit=crop&w=900&q=80" alt="Pessoa treinando com roupas esportivas">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=900&q=80" alt="Estilo esportivo em ambiente urbano">
+            <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=900&q=80" alt="Atleta com roupa esportiva">
+        </div>
+    </section>
+
+    <section>
+        <div class="newsletter">
+            <h3>Receba novidades</h3>
+            <p>Fique por dentro das novas coleções, promoções e lançamentos exclusivos.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Seu melhor e-mail" aria-label="Email">
+                <button type="submit" class="botao">Inscrever-se</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <h3>SportFit - Roupas Esportivas</h3>
+        <p>Qualidade, conforto e estilo para acompanhar você em cada movimento.</p>
+        <p>© 2026 SportFit. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitWear - Roupas Fitness</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #b6ff00;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #b6ff00;
+        }
+
+        .banner {
+            background: linear-gradient(120deg, #111, #333);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .banner h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #b6ff00;
+            color: #111;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .categorias {
+            padding: 45px 8%;
+        }
+
+        .categorias h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 30px;
+        }
+
+        .categoria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .categoria {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .categoria h3 {
+            margin-bottom: 10px;
+        }
+
+        .produtos {
+            padding: 20px 8% 60px;
+        }
+
+        .produtos h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .produto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr
+            <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitWear - Roupas Fitness</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        header {
+            background: #111;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #b6ff00;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #b6ff00;
+        }
+
+        .banner {
+            background: linear-gradient(120deg, #111, #333);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .banner h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #b6ff00;
+            color: #111;
+            padding: 13px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .categorias {
+            padding: 45px 8%;
+        }
+
+        .categorias h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 30px;
+        }
+
+        .categoria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .categoria {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .categoria h3 {
+            margin-bottom: 10px;
+        }
+
+        .produtos {
+            padding: 20px 8% 60px;
+        }
+
+        .produtos h2 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .produto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .produto {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .produto:hover {
+            transform: translateY(-5px);
+        }
+
+        .produto img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .produto-info {
+            padding: 18px;
+        }
+
+        .produto-info h3 {
+            margin-bottom: 8px;
+        }
+
+        .descricao {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .preco {
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .comprar {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: #111;
+            color: white;
+            padding: 12px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .comprar:hover {
+            background: #b6ff00;
+            color: #111;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .banner h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">FITWEAR</div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#produtos">Produtos</a>
+    </nav>
+</header>
+
+<section class="banner" id="inicio">
+    <h1>Vista sua melhor versão</h1>
+    <p>Roupas fitness para treinar com conforto, estilo e liberdade.</p>
+    <a href="#produtos" class="btn">Comprar agora</a>
+</section>
+
+<section class="categorias" id="categorias">
+    <h2>Compre por categoria</h2>
+
+    <div class="categoria-grid">
+
+        <div class="categoria">
+            <h3>👕 Blusas</h3>
+            <p>Blusas fitness confortáveis para seus treinos.</p>
+        </div>
+
+        <div class="categoria">
+            <h3>🎽 Regatas</h3>
+            <p>Regatas leves e respiráveis.</p>
+        </div>
+
+        <div class="categoria">
+            <h3>🩳 Shorts Esportivos</h3>
+            <p>Modelos para academia, corrida e treino.</p>
+        </div>
+
+        <div class="categoria">
+            <h3>🖤 Leggings</h3>
+            <p>Leggings com conforto e ótima elasticidade.</p>
+        </div>
+
+        <div class="categoria">
+            <h3>👖 Calças Leggings</h3>
+            <p>Modelos de cintura alta para seus treinos.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="produtos" id="produtos">
+
+    <h2>Produtos em destaque</h2>
+
+    <div class="produto-grid">
+
+        <!-- BLUSA -->
+        <div class="produto">
+            <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=600&q=80"
+                 alt="Blusa fitness">
+
+            <div class="produto-info">
+                <h3>Blusa Fitness Dry</h3>
+                <p class="descricao">Tecido leve e confortável para academia.</p>
+                <p class="preco">R$ 79,90</p>
+                <a href="#" class="comprar">Comprar</a>
+            </div>
+        </div>
+
+        <!-- REGATA -->
+        <div class="produto">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80"
+                 alt="Regata esportiva">
+
+            <div class="produto-info">
+                <h3>Regata Performance</h3>
+                <p class="descricao">Regata esportiva leve e respirável.</p>
+                <p class="preco">R$ 69,90</p>
+                <a href="#" class="comprar">Comprar</a>
+            </div>
+        </div>
+
+        <!-- SHORT -->
+        <div class="produto">
+            <img src="https://images.unsplash.com/photo-1506629905607-d9e9d4f5e4f1?auto=format&fit=crop&w=600&q=80"
+                 alt="Short esportivo">
+
+            <div class="produto-info">
+                <h3>Short Esportivo</h3>
+                <p class="descricao">Short com elasticidade para maior liberdade.</p>
+                <p class="preco">R$ 89,90</p>
+                <a href="#" class="comprar">Comprar</a>
+            </div>
+        </div>
+
+        <!-- LEGGING -->
+        <div class="produto">
+            <img src="https://images.unsplash.com/photo-1506629905607-d9e9d4f5e4f1?auto=format&fit=crop&w=600&q=80"
+                 alt="Short legging esportivo">
+
+            <div class="produto-info">
+                <h3>Short Legging Esportivo</h3>
+                <p class="descricao">Modelagem confortável para treinos intensos.</p>
+                <p class="preco">R$ 99,90</p>
+                <a href="#" class="comprar">Comprar</a>
+            </div>
+        </div>
+
+        <!-- CALÇA LEGGING -->
+        <div class="produto">
+            <img src="https://images.unsplash.com/photo-1506629905607-d9e9d4f5e4f1?auto=format&fit=crop&w=600&q=80"
+                 alt="Calça legging fitness">
+
+            <div class="produto-info">
+                <h3>Calça Legging Power</h3>
+                <p class="descricao">Cintura alta e tecido com ótima elasticidade.</p>
+                <p class="preco">R$ 129,90</p>
+                <a href="#" class="comprar">Comprar</a>
+            </div>
+        </div>
+
+        <!-- LEGGING CINTURA ALTA -->
+        <div class="produto">
+            <img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=600&q=80"
+                 alt="Legging cintura alta">
+
+            <div class="produto-info">
+                <h3>Legging Cintura Alta</h3>
+                <p class="descricao">Conforto e sustentação para o seu treino.</p>
+                <p class="preco">R$ 119,90</p>
+                <a href="#" class="comprar">Comprar</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 FitWear — Roupas Fitness</p>
+    <p>Conforto, estilo e performance.</p>
+</footer>
+
+</body>
+</html>
